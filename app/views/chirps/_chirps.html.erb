@@ -1,0 +1,7 @@
+<div class="list-group">
+    <% @chirps.each do |chirp| %>
+      <h4 class="list-group-item-heading"><%= chirp.title %></h4>
+      <p class="list-group-item-text"><%= chirp.description %></p>   
+      <p class="list-group-item-text"><%= chirp.user.username %></p>   
+    <% end %>
+</div>

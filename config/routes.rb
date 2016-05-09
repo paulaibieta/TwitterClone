@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :views
   devise_for :users
+  
+  resources :chirps do
+   collection do
+      get 'my_chirps', :action => :my_chirps
+    end 
+  end 
+
   root "pages#index"
   
   # The priority is based upon order of creation: first created -> highest priority.

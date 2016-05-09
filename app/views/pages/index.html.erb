@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <div class="text-xs-center">
+    <h1 class="display-3">Welcome to Chirp!</h1>
+    <p class="lead">A social networking site that is just a lesser version of Twitter</p>
+    <hr class="m-y-2">
+    <% if user_signed_in? %>
+      <p class="lead"><%= link_to "create a new chirp here", new_chirp_path, class: "btn btn-primary btn-lg" %></p>
+    <% else %>    
+      <p class="lead"><%= link_to 'Register for an Account Here', new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+    <% end %>  
+  </div>
+</div>

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwitterClone</title>
+  <title>Chirp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav class="navbar navbar-dark bg-primary">
+    <%= link_to "Home", root_path, class: "navbar navbar-brand" %>
+    <ul class="nav navbar-nav">
+    <% if user_signed_in? %>
+      <li class="nav-item pull-xs-right">
+        <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "nav-item active btn btn-success" %>
+      </li>   
+      <li class="nav-item">
+        <%= link_to "new chirp", new_chirp_path, class: "nav-link active" %><span class="sr-only">(current)</span>
+      </li>  
+       <li class="nav-item">
+        <%= link_to "all chirps", chirps_path, class: "nav-link active" %>
+      </li> 
+      <li class="nav-item">
+        <%= link_to "my chirps", my_chirps_chirps_path, class: "nav-link active" %>
+      </li>  
+    <% else %>  
+      <li class="nav navbar-nav">
+        <%= link_to "sign in", new_user_session_path, class: "nav-link active pull-xs-right btn btn-success" %>
+      </li>  
+      <li class="nav navbar-nav">
+        <%= link_to "register here", new_user_registration_path, class: "nav-link active pull-xs-right btn btn-info" %>
+      </li>  
+    <% end %>  
+    </ul>
+  </nav>
 
 <%= yield %>
 
