@@ -19,6 +19,7 @@ class ChirpsController < ApplicationController
   end 
 
   def my_chirps
+    @chirps = Chirp.where(:user_id => current_user)
   end 
 
   private

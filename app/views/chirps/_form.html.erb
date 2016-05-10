@@ -1,7 +1,11 @@
-<%= form_for @chirp do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit "submit" %>
-<% end %>
+  <%= form_for @chirp do |f| %>
+    <p class="lead">
+      <%= f.label :title, "my status" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </p>
+    <p class="lead">
+      <%= f.label :description, "what i'm doing" %>
+      <%= f.text_field :description, class: "form-control" %>
+    </p>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
